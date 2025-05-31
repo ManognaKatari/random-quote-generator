@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Random Quote Generator</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px 25px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      transition: transform 0.3s ease;
+    }
+
+    .quote-box:hover {
+      transform: scale(1.05);
+    }
+
+    .quote {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      min-height: 100px;
+      user-select: none;
+    }
+
+    button {
+      background-color: #ff6f61;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 111, 97, 0.6);
+    }
+
+    button:hover {
+      background-color: #ff3b2f;
+      box-shadow: 0 6px 20px rgba(255, 59, 47, 0.8);
+    }
+
+    @media (max-width: 480px) {
+      .quote-box {
+        padding: 25px 20px;
+      }
+      .quote {
+        font-size: 1.1rem;
+        min-height: 80px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-box" role="main" aria-label="Random quote generator">
+    <div class="quote" id="quote">Loading...</div>
+    <button onclick="generateQuote()" aria-label="Generate new quote">New Quote</button>
+  </div>
+
+  <script>
+    const quotes = [
+      "Believe you can and you're halfway there.",
+      "Keep going. Everything you need will come to you at the perfect time.",
+      "You are stronger than you think.",
+      "Do something today that your future self will thank you for.",
+      "Dream big and dare to fail.",
+      "I'm allowed to make a big deal out of things that feel really big to me.",
+      "Museum of failure or Gallery of trying.",
+      "Your existence could be someone's motivation, without knowing.",
+      "Distance, Silence, Peace.",
+      "Do not take yourself seriously.",
+      "Don't believe everything you think.",
+      "Someone loves everything you hate about you.",
+      "Just do it! You are never ready."
+    ];
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote').innerText = quotes[randomIndex];
+    }
+
+    window.onload = generateQuote;
+  </script>
+</body>
+</html>
